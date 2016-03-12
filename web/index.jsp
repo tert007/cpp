@@ -12,7 +12,7 @@
   </head>
   <body>
   <form action="/testServlet" method="Get">
-    <input type="submit" name="getUsersCollections" value="getUsersCollections" />
+    <input type="submit" name="GET_USERS_COLLECTION" value="Get Users Collection">
   </form>
   </body>
 </html>

@@ -13,8 +13,5 @@ public abstract class DaoFactory {
 		return null;
 	}
 
-	public abstract CreateDao getCreateDao();
-	public abstract ReadDao getReadDao();
-	public abstract UpdateDao getUpdateDao();
-	public abstract DeleteDao getDeleteDao();
+	public abstract UserDao getUserDao();
 }

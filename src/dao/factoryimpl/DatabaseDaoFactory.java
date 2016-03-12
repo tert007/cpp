@@ -1,8 +1,7 @@
 package dao.factoryimpl;
 
 import dao.*;
-import dao.database.DatabaseCreateDao;
-import dao.database.DatabaseReadDao;
+import dao.databaseimpl.UserDatabaseDao;
 
 /**
  * Created by Alexander on 16.02.2016.
@@ -18,22 +17,9 @@ public class DatabaseDaoFactory extends DaoFactory {
     }
 
     @Override
-    public CreateDao getCreateDao() {
-        return null;
+    public UserDao getUserDao() {
+        return UserDatabaseDao.getInstance();
     }
 
-    @Override
-    public ReadDao getReadDao() {
-        return DatabaseReadDao.getInstance();
-    }
 
-    @Override
-    public UpdateDao getUpdateDao() {
-        return null;
-    }
-
-    @Override
-    public DeleteDao getDeleteDao() {
-        return null;
-    }
 }

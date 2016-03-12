@@ -13,11 +13,18 @@ public class User {
     public User() {
     }
 
-    public User(int id, String login, String password, String email) {
+    public User(String login, String password, String email) {
+        this.login = login;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User(int id, String login, String password, String email, int bonusCount) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.email = email;
+        this.bonusCount = bonusCount;
     }
 
     public void setPassword(String password) {
@@ -51,7 +58,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public int getBonusCount() {
         return bonusCount;
