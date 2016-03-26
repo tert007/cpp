@@ -5,13 +5,13 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>testServlet</servlet-name>
-        <servlet-class>servlet.TestServlet</servlet-class>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>controller.Controller</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>testServlet</servlet-name>
-        <url-pattern>/testServlet</url-pattern>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/Controller</url-pattern>
     </servlet-mapping>
 
     <resource-env-ref>

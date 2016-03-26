@@ -1,4 +1,4 @@
-package servlet;
+package controller;
 
 import controller.CommandHelper;
 import controller.CommandName;
@@ -13,15 +13,17 @@ import java.util.Map;
 /**
  * Created by Alexander on 16.02.2016.
  */
-public class TestServlet extends HttpServlet {
+public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CommandHelper commandHelper = new CommandHelper();
 
+        String command = request.getParameter("command");
+
+        /*
         Map<String, String[]> parameters = request.getParameterMap();
-        for (Map.Entry<String, String[]> parameter : parameters.entrySet())
-        {
+        for (Map.Entry<String, String[]> parameter : parameters.entrySet()) {
             CommandName commandName = CommandName.valueOf(parameter.getKey());
             Object resultObject = commandHelper.getCommand(commandName).execute(parameter.getValue());
 
@@ -29,7 +31,7 @@ public class TestServlet extends HttpServlet {
         }
 
         request.getRequestDispatcher("result.jsp").forward(request, response);
-
+        */
 
     /*
         if (request.getParameter("getUsersCollections") != null){

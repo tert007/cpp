@@ -12,7 +12,12 @@
   </head>
   <body>
   <form action="/testServlet" method="Get">
-    <input type="submit" name="GET_USERS_COLLECTION" value="Get Users Collection">
+    <input type="submit" name="command" value="get_users_collection">
+  </form>
+  <form action="/testServlet" method="Get" name="regestration">
+    <input type="text" name="login">
+    <input type="password" name="password">
+    <input type="submit" name="command" value="reg_user">
   </form>
   </body>
 </html>
