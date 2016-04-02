@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - cinema@localhost" uuid="f405db2a-585e-4ad9-b04a-43b6d46ad05c">
-    <database-info product="MySQL" version="5.7.10-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.38 ( Revision: fe541c166cec739c74cc727c5da96c1028b4834a )">
+    <database-info product="MySQL" version="5.5.23" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="cinema"/>
       <table id="2" parent="1" name="employees"/>
       <table id="3" parent="1" name="films"/>
@@ -18,6 +18,7 @@
       <column id="9" parent="2" name="id_employee">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="10" parent="2" name="name">
         <mandatory>1</mandatory>
@@ -90,6 +91,7 @@
       <column id="27" parent="4" name="id_hall">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="28" parent="4" name="format">
         <mandatory>1</mandatory>
@@ -106,6 +108,7 @@
       <column id="31" parent="5" name="id_payticket">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="32" parent="5" name="id_ticket">
         <mandatory>1</mandatory>
@@ -150,6 +153,7 @@
       <column id="41" parent="6" name="id_session">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="42" parent="6" name="id_hall">
         <mandatory>1</mandatory>
@@ -188,6 +192,7 @@
       <column id="50" parent="7" name="id_ticket">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="51" parent="7" name="price">
         <mandatory>1</mandatory>
@@ -232,6 +237,7 @@
       <column id="60" parent="8" name="id_user">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
       </column>
       <column id="61" parent="8" name="login">
         <mandatory>1</mandatory>

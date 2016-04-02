@@ -14,8 +14,16 @@ import java.util.List;
  * Created by Alexander on 02.04.2016.
  */
 public class FilmDatabaseDao extends Connector implements FilmDao {
-
     private static FilmDatabaseDao instance = new FilmDatabaseDao();
+    private final String AllFromFilmsQuery = "SELECT * FROM films";
+    public static  String columnId = "id";
+    public static  String columnTitle = "title";
+    public static  String columnDescription = "description";
+    public static  String columnDirector = "director";
+    public static  String columnGenre = "genre";
+    public static  String columnDate = "date";
+
+
 
     private FilmDatabaseDao() {
         //Создаст Connector, т.е соедеение бд
@@ -28,42 +36,61 @@ public class FilmDatabaseDao extends Connector implements FilmDao {
 
 
     @Override
-    public Film findFilmByTitle() {
+    public Film findFilmByTitle(String title) {
+        ResultSet resultSet = null;
+        try {
+            resultSet = statement.executeQuery(AllFromFilmsQuery +
+                                                " WHERE " + FilmDatabaseDao.columnTitle + "='" + title + "'" );
+            return this.setToFilm(resultSet);
+        }
+        catch (SQLException ex){
+
+        }
         return null;
     }
 
     @Override
     public List<Film> getFilmsCollections() {
         List<Film> films = new ArrayList<Film>();
-
-        Statement statement = null;
         ResultSet resultSet = null;
-
         try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM films");
-
-            while (resultSet.next()) {
-
-                Film film = new Film();
-                film.setId(resultSet.getInt("id"));
-                film.setTitle(resultSet.getString("title"));
-                film.setDescription(resultSet.getString("description"));
-                film.setDirector(resultSet.getString("director"));
-                film.setGenre(FilmGenre.valueOf(resultSet.getString("genre")));
-                film.setDate(resultSet.getDate("date"));
-
-                films.add(film);
-            }
-
-            return films;
+            resultSet = statement.executeQuery(AllFromFilmsQuery);
+            return this.filmsToCollection(resultSet);
         }
         catch (SQLException ex){
             //throw new DaoException
         }
         finally {
-            closeStatement(statement);
+            //closeStatement(statement);
             closeResultSet(resultSet);
+        }
+        return null;
+    }
+
+    private List<Film> filmsToCollection(ResultSet filmsSet){
+        List<Film> result = new ArrayList<Film>();
+        try {
+            while (filmsSet.next()) {
+                result.add(this.setToFilm(filmsSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    private Film setToFilm(ResultSet film){
+        Film result = new Film();
+        try {
+            result.setId(film.getInt(FilmDatabaseDao.columnId));
+            result.setTitle(film.getString(FilmDatabaseDao.columnTitle));
+            result.setDescription(film.getString(FilmDatabaseDao.columnDescription));
+            result.setDirector(film.getString(FilmDatabaseDao.columnDirector));
+            result.setGenre(FilmGenre.valueOf(film.getString(FilmDatabaseDao.columnGenre)));
+            result.setDate(film.getDate(FilmDatabaseDao.columnDate));
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }

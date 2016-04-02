@@ -12,6 +12,7 @@ public class Connector {
     private static final String url = "jdbc:mysql://localhost:3306/cinema";
     private static final String login = "root";
     private static final String password = "root";
+    protected Statement statement = null;
 
     protected static Connection connection = null;
 
@@ -24,6 +25,7 @@ public class Connector {
                 DriverManager.registerDriver(driver);
 
                 connection = DriverManager.getConnection(url, login, password);
+                statement = connection.createStatement();
             }
         }
         catch (ClassNotFoundException | SQLException e) {

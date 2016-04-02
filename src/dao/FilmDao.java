@@ -8,6 +8,6 @@ import java.util.List;
  * Created by Alexander on 02.04.2016.
  */
 public interface FilmDao {
-    Film findFilmByTitle();
+    Film findFilmByTitle(String title);
     List<Film> getFilmsCollections();
 }

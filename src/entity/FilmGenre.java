@@ -4,6 +4,6 @@ package entity;
  * Created by Alexander on 02.04.2016.
  */
 public enum FilmGenre {
-    DRAMA,
+    DRAMA ,
     COMEDY
 }

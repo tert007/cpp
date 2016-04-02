@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Map;
 
 /**
@@ -26,8 +27,6 @@ public class Controller extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CommandHelper commandHelper = new CommandHelper();
-
-        /// Данный метод можно использовать и в Post запросе, чтобы не дублировать код.
 
         String action = request.getParameter("command");
 
