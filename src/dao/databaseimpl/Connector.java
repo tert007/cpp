@@ -26,7 +26,7 @@ public class Connector {
                 connection = DriverManager.getConnection(url, login, password);
             }
         }
-        catch (ClassNotFoundException | SQLException ex) {
+        catch (ClassNotFoundException | SQLException e) {
             //throw new DatabaseDaoException;
         }
     }
@@ -36,7 +36,7 @@ public class Connector {
             try {
                 connection.close();
                 connection = null;
-            } catch (SQLException ex) {
+            } catch (SQLException e) {
                 //throw new DaoException(ex);
             }
         }

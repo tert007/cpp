@@ -1,6 +1,7 @@
 package dao.factoryimpl;
 
 import dao.*;
+import dao.databaseimpl.FilmDatabaseDao;
 import dao.databaseimpl.UserDatabaseDao;
 
 /**
@@ -21,5 +22,9 @@ public class DatabaseDaoFactory extends DaoFactory {
         return UserDatabaseDao.getInstance();
     }
 
+    @Override
+    public FilmDao getFilmDao() {
+        return FilmDatabaseDao.getInstance();
+    }
 
 }

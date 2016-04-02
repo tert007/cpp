@@ -5,14 +5,13 @@ import controller.Command;
 import dao.DaoFactory;
 import entity.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class GetUsersCollections implements Command{
+public class GetUsersCollection implements Command {
 
     @Override
-    public String execute(HttpRequest request) {
+    public String execute(HttpServletRequest request) {
         return null;
-
-        //return DaoFactory.getDaoFactory().getUserDao().getUsersCollection();
     }
 }

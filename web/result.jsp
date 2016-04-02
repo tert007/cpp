@@ -11,22 +11,22 @@
 
 <html>
 <head>
-    <title>UserTable</title>
+    <title>Films</title>
 </head>
 <body>
     <table>
-        <caption>Пользователи</caption>
+        <caption>Films</caption>
         <tr>
             <th>id</th>
-            <th>login</th>
-            <th>email</th>
+            <th>title</th>
+            <th>director</th>
         </tr>
 
-        <c:forEach var="user" items="${GET_USERS_COLLECTION}">
+        <c:forEach var="film" items="${films}">
             <tr>
-                <td>${user.getId()}</td>
-                <td>${user.getLogin()}</td>
-                <td>${user.getEmail()}</td>
+                <td>${film.getId()}</td>
+                <td>${film.getTitle()}</td>
+                <td>${film.getDirector()}</td>
             </tr>
         </c:forEach>
 

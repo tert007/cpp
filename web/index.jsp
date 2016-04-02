@@ -11,13 +11,10 @@
     <title>Cinema</title>
   </head>
   <body>
-  <form action="/testServlet" method="Get">
-    <input type="submit" name="command" value="get_users_collection">
+
+  <form action="Controller" method="Get">
+    <input type="submit" name="command" value="get_films_collection">
   </form>
-  <form action="/testServlet" method="Get" name="regestration">
-    <input type="text" name="login">
-    <input type="password" name="password">
-    <input type="submit" name="command" value="reg_user">
-  </form>
+
   </body>
 </html>

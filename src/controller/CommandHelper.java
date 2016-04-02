@@ -1,6 +1,7 @@
 package controller;
 
-import controller.commandimpl.GetUsersCollections;
+import controller.commandimpl.GetFilmsCollection;
+import controller.commandimpl.GetUsersCollection;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,11 @@ public class CommandHelper {
 
     public CommandHelper(){
 
-        commands.put(CommandName.GET_USERS_COLLECTION, new GetUsersCollections());
+
+        commands.put(CommandName.GET_FILMS_COLLECTION, new GetFilmsCollection());
+
+        commands.put(CommandName.GET_USERS_COLLECTION, new GetUsersCollection());
+
     }
 
     public Command getCommand(CommandName commandName){
