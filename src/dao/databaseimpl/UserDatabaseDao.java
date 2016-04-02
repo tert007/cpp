@@ -1,6 +1,6 @@
 package dao.databaseimpl;
 
-import entity.User;
+import entity.user.User;
 import dao.UserDao;
 
 import java.sql.ResultSet;
@@ -38,7 +38,7 @@ public class UserDatabaseDao extends Connector implements UserDao {
 
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM users");
+            resultSet = statement.executeQuery("SELECT * FROM 'user'");
 
             while (resultSet.next()) {
                 users.add(new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5)));
