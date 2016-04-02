@@ -4,6 +4,7 @@ import dao.FilmDao;
 import entity.Film;
 import entity.FilmGenre;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,12 +17,12 @@ import java.util.List;
 public class FilmDatabaseDao extends Connector implements FilmDao {
     private static FilmDatabaseDao instance = new FilmDatabaseDao();
     private final String AllFromFilmsQuery = "SELECT * FROM films";
-    public static  String columnId = "id";
-    public static  String columnTitle = "title";
-    public static  String columnDescription = "description";
-    public static  String columnDirector = "director";
-    public static  String columnGenre = "genre";
-    public static  String columnDate = "date";
+    public static final  String columnId = "id";
+    public static final String columnTitle = "title";
+    public static final String columnDescription = "description";
+    public static final String columnDirector = "director";
+    public static final String columnGenre = "genre";
+    public static final String columnDate = "date";
 
 
 
@@ -46,6 +47,43 @@ public class FilmDatabaseDao extends Connector implements FilmDao {
         catch (SQLException ex){
 
         }
+        finally {
+            closeResultSet(resultSet);
+        }
+        return null;
+    }
+
+    @Override
+    public Film findFilmById(int id) {
+        ResultSet resultSet = null;
+        try {
+            resultSet = statement.executeQuery(AllFromFilmsQuery +
+                    " WHERE " + FilmDatabaseDao.columnId + "='" + id + "'" );
+            return this.setToFilm(resultSet);
+        }
+        catch (SQLException ex){
+
+        }
+        finally {
+            closeResultSet(resultSet);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Film> findFilmsByDate(Date date) {
+        ResultSet resultSet = null;
+        try {
+            resultSet = statement.executeQuery(AllFromFilmsQuery +
+                    " WHERE " + FilmDatabaseDao.columnDate + "='" + date + "'" );
+            return this.filmsToCollection(resultSet);
+        }
+        catch (SQLException ex){
+
+        }
+        finally {
+            closeResultSet(resultSet);
+        }
         return null;
     }
 
@@ -58,10 +96,9 @@ public class FilmDatabaseDao extends Connector implements FilmDao {
             return this.filmsToCollection(resultSet);
         }
         catch (SQLException ex){
-            //throw new DaoException
+
         }
         finally {
-            //closeStatement(statement);
             closeResultSet(resultSet);
         }
         return null;

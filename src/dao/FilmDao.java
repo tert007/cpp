@@ -2,6 +2,7 @@ package dao;
 
 import entity.Film;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -9,5 +10,7 @@ import java.util.List;
  */
 public interface FilmDao {
     Film findFilmByTitle(String title);
+    Film findFilmById(int id);
+    List<Film> findFilmsByDate(Date date);
     List<Film> getFilmsCollections();
 }

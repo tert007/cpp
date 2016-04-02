@@ -14,9 +14,6 @@ import java.util.List;
 public class GetFilmsCollection implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-
-
-
         DaoFactory daoFactory = DaoFactory.getDaoFactory();
         List<Film> films = daoFactory.getFilmDao().getFilmsCollections();
 
